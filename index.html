@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hartwick Technologies | Technical project management and Angular engineering</title>
+<meta name="description" content="Amanda Hartwick is a technical project manager and senior Angular lead in Orange County, California. Nine years of consulting across banking, healthcare and e-commerce.">
+<link rel="canonical" href="https://hartwick.tech/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1B2A3A">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hartwick.tech/">
+<meta property="og:title" content="Hartwick Technologies: I get software projects shipped">
+<meta property="og:description" content="Technical project management, Angular and design-system engineering, and Shopify builds. Amanda Hartwick, Orange County, CA.">
+<meta property="og:image" content="https://hartwick.tech/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Hartwick Technologies",
+  "url": "https://hartwick.tech/",
+  "email": "amanda@hartwick.tech",
+  "founder": { "@type": "Person", "name": "Amanda Hartwick", "jobTitle": "Technical Project Manager and Senior Angular Lead" },
+  "areaServed": "US",
+  "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+  "description": "Technical project management, Angular and front-end engineering, and Shopify e-commerce."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F4F5F0;
+    --paper-2: #E9ECE4;
+    --white: #FFFFFF;
+    --ink: #1B2A3A;
+    --ink-2: #2C3E50;
+    --muted: #56636F;
+    --rule: #D3D8CE;
+    --marigold: #E2A41C;
+    --marigold-soft: #F6E3B4;
+    --radius-s: 6px;
+    --radius-l: 14px;
+    --wrap: 1160px;
+    --font: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: "tnum" 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  p { margin: 0 0 1em; }
+  h1, h2, h3 { margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  :focus-visible {
+    outline: 3px solid var(--marigold);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  .skip {
+    position: absolute; left: 1rem; top: -4rem;
+    background: var(--ink); color: var(--paper);
+    padding: .6rem 1rem; border-radius: var(--radius-s); z-index: 10;
+  }
+  .skip:focus { top: 1rem; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 5;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .site-header.scrolled { border-bottom-color: var(--rule); }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; height: 4.25rem;
+  }
+  .brand {
+    display: flex; align-items: center; gap: .65rem;
+    text-decoration: none; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em;
+  }
+  .brand svg { width: 32px; height: 32px; }
+  .nav { display: flex; align-items: center; gap: 1.75rem; }
+  .nav a.link {
+    text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: .98rem;
+  }
+  .nav a.link:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: var(--marigold); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: .8rem 1.25rem;
+    border-radius: var(--radius-s);
+    font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.2;
+    text-decoration: none; cursor: pointer;
+    border: 2px solid var(--ink);
+    transition: background-color .15s, color .15s;
+  }
+  .btn-primary { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .btn-primary:hover { background: #EDB437; border-color: #EDB437; }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+  .btn-small { padding: .55rem .95rem; font-size: .95rem; white-space: nowrap; }
+  .brand span { white-space: nowrap; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 4.5rem 0 5rem; }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.25fr 1fr; gap: 3.5rem; align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 7.4vw, 6.25rem);
+    line-height: .95;
+    letter-spacing: -0.045em;
+    margin-bottom: 1.75rem;
+  }
+  .hero h1 .line { display: block; }
+  .hero .lede {
+    font-size: 1.25rem; line-height: 1.5; color: var(--ink-2);
+    max-width: 34rem; margin-bottom: 2rem;
+  }
+  .hero .lede strong { font-weight: 700; color: var(--ink); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+  /* The shipped log: the one bold element */
+  .shiplog {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-l);
+    padding: 1.6rem 1.6rem .6rem;
+    box-shadow: 0 1px 0 var(--rule), 0 18px 40px -24px rgba(27, 42, 58, .35);
+  }
+  .shiplog-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 1rem; border-bottom: 2px solid var(--ink);
+  }
+  .shiplog-head h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
+  .shiplog-head span { color: var(--muted); font-size: .9rem; }
+  .shiplog li {
+    display: grid; grid-template-columns: 1.75rem 1fr; gap: .9rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .shiplog li:last-child { border-bottom: 0; }
+  .tick {
+    width: 1.75rem; height: 1.75rem; border-radius: 50%;
+    background: var(--marigold); display: grid; place-items: center; margin-top: .1rem;
+  }
+  .tick svg { width: 14px; height: 14px; }
+  .tick path { stroke-dasharray: 20; stroke-dashoffset: 0; }
+  .shiplog strong { display: block; font-weight: 700; line-height: 1.3; }
+  .shiplog .what { display: block; color: var(--muted); font-size: .95rem; line-height: 1.45; }
+  .shiplog .yr { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: .15rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .js .shiplog li { opacity: 0; transform: translateY(6px); }
+    .js .shiplog li .tick { transform: scale(.4); }
+    .js .shiplog li .tick path { stroke-dashoffset: 20; }
+    .js .shiplog.go li {
+      opacity: 1; transform: none;
+      transition: opacity .45s ease, transform .45s ease;
+      transition-delay: calc(var(--i) * 260ms + 250ms);
+    }
+    .js .shiplog.go li .tick {
+      transform: scale(1);
+      transition: transform .35s cubic-bezier(.3, 1.6, .5, 1);
+      transition-delay: calc(var(--i) * 260ms + 400ms);
+    }
+    .js .shiplog.go li .tick path {
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset .35s ease;
+      transition-delay: calc(var(--i) * 260ms + 550ms);
+    }
+  }
+
+  /* ---------- Sections ---------- */
+  section { scroll-margin-top: 4.5rem; }
+  .section { padding: 5.5rem 0; }
+  .section-head { max-width: 44rem; margin-bottom: 3rem; }
+  .section-head h2 { font-size: clamp(2.1rem, 4.2vw, 3.1rem); margin-bottom: 1rem; letter-spacing: -0.035em; }
+  .section-head p { font-size: 1.15rem; color: var(--ink-2); margin: 0; }
+
+  .industries {
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    padding: 1.4rem 0;
+  }
+  .industries .wrap { display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; align-items: baseline; }
+  .industries p { margin: 0; color: var(--muted); font-size: .98rem; }
+  .industries ul { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
+  .industries li { font-weight: 700; }
+
+  /* Services */
+  .service {
+    display: grid; grid-template-columns: 1fr 1.35fr; gap: 3rem;
+    padding: 2.75rem 0; border-top: 2px solid var(--ink);
+  }
+  .service:last-child { border-bottom: 1px solid var(--rule); }
+  .service h3 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin-bottom: .9rem; letter-spacing: -0.03em; }
+  .service .for { color: var(--ink-2); font-size: 1.08rem; max-width: 26rem; }
+  .includes { margin-bottom: 1.75rem; }
+  .includes li {
+    position: relative; padding-left: 1.4rem; margin-bottom: .45rem;
+  }
+  .includes li::before {
+    content: ""; position: absolute; left: 0; top: .62em;
+    width: .55rem; height: .55rem; border-radius: 2px; background: var(--marigold);
+  }
+  .packages {
+    background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l);
+    padding: .4rem 1.25rem;
+  }
+  .package {
+    display: grid; grid-template-columns: 1fr auto; gap: .25rem 1.5rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .package:last-child { border-bottom: 0; }
+  .package .name { font-weight: 700; }
+  .package .price { font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .package .desc { grid-column: 1 / -1; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+  .note { color: var(--muted); font-size: .95rem; margin-top: 1.5rem; max-width: 44rem; }
+
+  /* Work */
+  .work { background: var(--white); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .case {
+    display: grid; grid-template-columns: 1fr 1.35fr; gap: 3rem;
+    padding: 2.75rem 0; border-top: 1px solid var(--rule);
+  }
+  .case:first-of-type { border-top: 2px solid var(--ink); }
+  .case h3 { font-size: clamp(1.5rem, 2.4vw, 1.95rem); margin-bottom: .85rem; letter-spacing: -0.03em; }
+  .case .meta { color: var(--muted); font-size: .98rem; line-height: 1.5; }
+  .case .meta b { color: var(--ink); font-weight: 700; display: block; }
+  .results li {
+    display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.25rem;
+    padding: .9rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  }
+  .results li:last-child { border-bottom: 0; }
+  .results .fig {
+    font-weight: 800; font-size: 1.45rem; letter-spacing: -0.03em; line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .results .fig small { display: block; font-size: .8rem; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+
+  .ecom-head { margin: 3.5rem 0 1.5rem; border-top: 2px solid var(--ink); padding-top: 2.75rem; }
+  .ecom-head h3 { font-size: clamp(1.5rem, 2.4vw, 1.95rem); letter-spacing: -0.03em; margin-bottom: .6rem; }
+  .ecom-head p { color: var(--ink-2); max-width: 44rem; margin: 0; }
+  .ecom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .ecom article {
+    background: var(--paper); border-radius: var(--radius-l); padding: 1.5rem;
+  }
+  .ecom .fig { font-weight: 800; font-size: 2.4rem; letter-spacing: -0.045em; line-height: 1; margin-bottom: .35rem; }
+  .ecom .fig-label { font-weight: 700; margin-bottom: 1rem; }
+  .ecom h4 { margin: 0 0 .35rem; font-size: 1.05rem; }
+  .ecom p { color: var(--ink-2); font-size: .97rem; margin: 0; }
+  .ecom .text-only .fig-label { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; counter-reset: step; }
+  .steps li { border-top: 2px solid var(--ink); padding-top: 1.25rem; }
+  .steps .num {
+    display: inline-grid; place-items: center;
+    width: 2.25rem; height: 2.25rem; border-radius: 50%;
+    background: var(--ink); color: var(--paper); font-weight: 800; margin-bottom: 1rem;
+  }
+  .steps h3 { font-size: 1.35rem; margin-bottom: .6rem; letter-spacing: -0.02em; }
+  .steps p { color: var(--ink-2); margin: 0; }
+
+  /* About */
+  .about { border-top: 1px solid var(--rule); }
+  .about .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: 4rem; align-items: start; }
+  .about h2 { font-size: clamp(2.1rem, 4.2vw, 3.1rem); letter-spacing: -0.035em; margin-bottom: 1.5rem; }
+  .about .bio p { font-size: 1.12rem; color: var(--ink-2); max-width: 38rem; }
+  .timeline { border-left: 2px solid var(--ink); padding-left: 1.5rem; }
+  .timeline li { position: relative; padding-bottom: 1.5rem; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: ""; position: absolute; left: calc(-1.5rem - 7px); top: .45rem;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink);
+  }
+  .timeline li:first-child::before { background: var(--marigold); border-color: var(--marigold); }
+  .timeline .when { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+  .timeline b { display: block; line-height: 1.35; }
+  .timeline span.where { color: var(--ink-2); font-size: .97rem; }
+  .tools { margin-top: 2rem; }
+  .tools h3 { font-size: 1.1rem; margin-bottom: .75rem; letter-spacing: -0.01em; }
+  .tools p { color: var(--ink-2); font-size: .97rem; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--paper); padding: 6rem 0; }
+  .contact .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: end; }
+  .contact h2 { font-size: clamp(2.6rem, 6vw, 4.75rem); line-height: .98; letter-spacing: -0.045em; margin-bottom: 1.5rem; }
+  .contact p { color: #C9D1D9; font-size: 1.15rem; max-width: 34rem; }
+  .contact .btn-secondary { color: var(--paper); border-color: var(--paper); }
+  .contact .btn-secondary:hover { background: var(--paper); color: var(--ink); }
+  .contact-card {
+    border: 1px solid #3A4D61; border-radius: var(--radius-l); padding: 1.75rem;
+  }
+  .contact-card dl { margin: 0; }
+  .contact-card dt { color: #9FB0C0; font-size: .9rem; }
+  .contact-card dd { margin: 0 0 1.1rem; font-weight: 700; font-size: 1.1rem; }
+  .contact-card dd:last-child { margin-bottom: 0; }
+  .contact-card a { text-decoration-color: var(--marigold); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  .contact :focus-visible { outline-color: var(--marigold); }
+
+  .site-footer { background: var(--ink); color: #9FB0C0; border-top: 1px solid #2E4155; padding: 1.75rem 0; font-size: .92rem; }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; }
+  .site-footer p { margin: 0; }
+  .site-footer a { color: #C9D1D9; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .service, .case { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ecom { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 720px) {
+    .nav a.link { display: none; }
+    .brand { font-size: .98rem; gap: .5rem; }
+    .brand svg { width: 28px; height: 28px; }
+    .hero { padding: 3rem 0 3.5rem; }
+    .section { padding: 4rem 0; }
+    .results li { grid-template-columns: 1fr; gap: .2rem; }
+    .shiplog { padding: 1.25rem 1.1rem .4rem; }
+    .contact { padding: 4.5rem 0; }
+  }
+  @media (max-width: 380px) {
+    .brand span { display: none; }
+  }
+</style>
+</head>
+
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Hartwick Technologies, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#1B2A3A"/>
+        <rect x="8" y="7" width="4" height="18" rx="1" fill="#F4F5F0"/>
+        <rect x="20" y="7" width="4" height="18" rx="1" fill="#F4F5F0"/>
+        <rect x="11" y="14" width="10" height="4" rx="1" fill="#E2A41C"/>
+      </svg>
+      <span>Hartwick Technologies</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#work">Work</a>
+      <a class="link" href="#about">About</a>
+      <a class="btn btn-primary btn-small" data-booking href="mailto:amanda@hartwick.tech?subject=Intro%20call">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========== Hero ========== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title"><span class="line">I get software</span><span class="line">projects shipped.</span></h1>
+        <p class="lede">I'm <strong>Amanda Hartwick</strong>, a technical project manager who has also been a lead developer. I've spent nine years consulting for banks, healthcare companies and e-commerce brands, keeping software projects realistic, on schedule and out the door.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-booking href="mailto:amanda@hartwick.tech?subject=Intro%20call">Book a 20-minute call</a>
+          <a class="btn btn-secondary" href="mailto:amanda@hartwick.tech">Email me</a>
+        </div>
+      </div>
+
+      <div class="shiplog" aria-labelledby="shiplog-title">
+        <div class="shiplog-head">
+          <h2 id="shiplog-title">Shipped</h2>
+          <span>A few highlights</span>
+        </div>
+        <ul>
+          <li style="--i:0">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#1B2A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Every Angular upgrade from v8 to v22</strong><span class="what"> For a component library about 82 teams depend on</span></div>
+          </li>
+          <li style="--i:1">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#1B2A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Test coverage from 21% to 92%</strong><span class="what"> In nine months, with accessibility checks and quality gates</span></div>
+          </li>
+          <li style="--i:2">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#1B2A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>A healthcare platform built for HIPAA</strong><span class="what"> Two offshore vendor teams, infrastructure setup cost cut 32%</span></div>
+          </li>
+          <li style="--i:3">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#1B2A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Conversion up 111% in one month</strong><span class="what"> A Shopify rebuild for We Are Fluide</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="industries">
+    <div class="wrap">
+      <p>Industries I've delivered in</p>
+      <ul>
+        <li>Banking and finance</li>
+        <li>Healthcare</li>
+        <li>Health and wellness brands</li>
+        <li>E-commerce</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== Services ========== -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="services-title">What I do</h2>
+        <p>Three kinds of work, one goal: your project ships, and your team understands how it got there.</p>
+      </div>
+
+      <article class="service">
+        <div>
+          <h3>Technical project management</h3>
+          <p class="for">For teams with a software project that has to land: a new product, an outside vendor's build, or an offshore team that needs steady direction.</p>
+        </div>
+        <div>
+          <ul class="includes">
+            <li>Sprint planning, release planning and release notes</li>
+            <li>Managing vendors and offshore teams, across time zones</li>
+            <li>Specs, acceptance criteria and hands-on QA</li>
+            <li>Budget tracking and plain-language status reports</li>
+            <li>Experience delivering in HIPAA-regulated healthcare</li>
+          </ul>
+          <div class="packages">
+            <div class="package">
+              <span class="name">Part-time PM</span><span class="price">$3,600/month</span>
+              <span class="desc">Up to 40 hours a month. Weekly check-ins, sprint management and reporting.</span>
+            </div>
+            <div class="package">
+              <span class="name">Embedded PM</span><span class="price">$6,800/month</span>
+              <span class="desc">Up to 80 hours a month. I work inside your team's tools and meetings like one of your own.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service">
+        <div>
+          <h3>Angular and front-end engineering</h3>
+          <p class="for">For teams stuck several versions behind, or building a component library that many other teams depend on.</p>
+        </div>
+        <div>
+          <ul class="includes">
+            <li>Angular upgrades and migration planning</li>
+            <li>Component libraries and design systems</li>
+            <li>Design tokens, from Figma to production code</li>
+            <li>Test coverage, accessibility testing and CI quality gates</li>
+            <li>Workshops and training for your developers</li>
+          </ul>
+          <div class="packages">
+            <div class="package">
+              <span class="name">Angular Upgrade Readiness Assessment</span><span class="price">$3,500</span>
+              <span class="desc">Fixed price. I review your app and its dependencies and give you a step-by-step upgrade plan, so you know what it will take before you commit.</span>
+            </div>
+            <div class="package">
+              <span class="name">Design System Audit</span><span class="price">$4,500</span>
+              <span class="desc">Fixed price. A review of your component library's structure, tokens, tests and adoption, with a prioritized list of fixes.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service">
+        <div>
+          <h3>Shopify and e-commerce</h3>
+          <p class="for">For brands whose store isn't converting the way it should, or who are ready to rebuild.</p>
+        </div>
+        <div>
+          <ul class="includes">
+            <li>Store builds, redesigns and migrations</li>
+            <li>Conversion and average-order-value improvements</li>
+            <li>Email, funnels and marketing integrations</li>
+          </ul>
+          <div class="packages">
+            <div class="package">
+              <span class="name">Store Tune-Up</span><span class="price">$1,500</span>
+              <span class="desc">Fixed price. A review of your store's speed, checkout and conversion basics, with fixes for the biggest problems.</span>
+            </div>
+            <div class="package">
+              <span class="name">Store build or redesign</span><span class="price">From $7,500</span>
+              <span class="desc">Quoted by scope after a call.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <p class="note">Need something that doesn't fit a package? Most work starts with a free 20-minute call, and I'll send a written quote after.</p>
+    </div>
+  </section>
+
+  <!-- ========== Work ========== -->
+  <section class="section work" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">Selected work</h2>
+        <p>Real projects, real numbers.</p>
+      </div>
+
+      <article class="case">
+        <div>
+          <h3>An Angular component library that about 82 teams build on</h3>
+          <p class="meta"><b>A major U.S. financial institution</b>Lead developer, placed through CGI, 2021–2026</p>
+        </div>
+        <div>
+          <p>I helped build and run the bank's shared library of 82 Angular components, used by about 82 internal teams. I co-led a team of up to 12 developers for three years, then led a new design-token team.</p>
+          <ul class="results">
+            <li><span class="fig">v8 to v22</span><span>Led every major Angular upgrade, including an Angular 18 and Material 3 migration rolled out to every consuming team with workshops, guides and automated upgrade tooling.</span></li>
+            <li><span class="fig">21% to 92%</span><span>Raised automated test coverage in nine months, adding accessibility testing and code-quality gates.</span></li>
+            <li><span class="fig">Figma to code</span><span>Co-built the design-token pipeline and the Figma Code Connect integration, so designers see real component code in Figma.</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>Yuccari Nexus: a healthcare communications platform built for HIPAA</h3>
+          <p class="meta"><b>Yuccari Nexus, through Debello Maas</b>Technical project manager, 2026 to now</p>
+        </div>
+        <div>
+          <p>Yuccari Nexus is a phone answering platform for medical and legal practices. I run delivery: two offshore vendor teams in India, a 12.5-hour time difference, and monthly sprints from spec to QA.</p>
+          <ul class="results">
+            <li><span class="fig">32%</span><span>Cut the infrastructure setup cost, from about $1,400 to a $950 flat fee.</span></li>
+            <li><span class="fig">2 vendors</span><span>Caught two email providers that couldn't meet HIPAA requirements before launch, and moved the platform to one that could.</span></li>
+            <li><span class="fig">Day one</span><span>Steered the architecture toward HIPAA-eligible services from the start and secured the hosting provider's business associate agreement.</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="ecom-head">
+        <h3>E-commerce results</h3>
+        <p>From 2017 to 2020 I co-owned Gizio, a digital agency, building Shopify stores and running marketing for health, wellness and direct-to-consumer brands.</p>
+      </div>
+      <div class="ecom">
+        <article>
+          <p class="fig">+111%</p>
+          <p class="fig-label">Conversion rate in the first month</p>
+          <h4>We Are Fluide</h4>
+          <p>Rebuilt the inclusive makeup brand's store around conversion, then supported it after launch.</p>
+        </article>
+        <article>
+          <p class="fig">+25%</p>
+          <p class="fig-label">Average order value over six months</p>
+          <h4>Echo-Sigma Emergency Systems</h4>
+          <p>Redesigned the store around upsells and migrated every product, customer and past order.</p>
+        </article>
+        <article class="text-only">
+          <p class="fig-label">Rebrand, store and book launch</p>
+          <h4>Dr. Anna Cabeca</h4>
+          <p>Rebuilt the women's health physician's website for her rebrand and ran her Shopify store, email marketing and book-launch sales.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Process ========== -->
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="process-title">How working together goes</h2>
+      </div>
+      <ol class="steps" style="list-style:none;margin:0;padding:0">
+        <li>
+          <span class="num" aria-hidden="true">1</span>
+          <h3>A free 20-minute call</h3>
+          <p>You tell me what you're building and where it's stuck. I'll tell you honestly whether I'm the right fit.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">2</span>
+          <h3>A written proposal</h3>
+          <p>Scope, timeline and price in writing, so there are no surprises later.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">3</span>
+          <h3>Weekly progress, then a clean handoff</h3>
+          <p>Short weekly updates in plain language. When we're done, your team has the docs and know-how to keep going.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== About ========== -->
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="bio">
+        <h2 id="about-title">About me</h2>
+        <p>I started out in marketing and retail management, co-owned a digital agency, and then spent more than five years building and leading enterprise Angular work at a major bank. That path is why I can sit in a sprint review with engineers and then explain it clearly to the people paying for it.</p>
+        <p>Hartwick Technologies is my consulting business. I'm based in Orange County, California, and I work remotely with teams anywhere in the U.S.</p>
+        <div class="tools">
+          <h3>Tools I work in every day</h3>
+          <p>Angular, Angular Material, TypeScript, RxJS, Figma, Jira, Confluence, Jenkins, GitHub Actions, SonarQube, Karma and Jasmine, Docker, Kubernetes and Shopify.</p>
+        </div>
+      </div>
+      <ol class="timeline" style="list-style:none;margin:0">
+        <li><span class="when">2026 to now</span><b>Founder, Hartwick Technologies</b><span class="where">Technical project management and engineering</span></li>
+        <li><span class="when">2021 to 2026</span><b>Lead Developer (Angular), CGI</b><span class="where">Placed with a major U.S. financial institution</span></li>
+        <li><span class="when">2021</span><b>Tech Elevator</b><span class="where">Full-stack development program</span></li>
+        <li><span class="when">2017 to 2020</span><b>Co-owner, Gizio</b><span class="where">Digital agency for e-commerce and wellness brands</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== Contact ========== -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-title">Have a project that needs to ship?</h2>
+        <p>Book a free 20-minute call, or send me a note about what you're working on.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-booking href="mailto:amanda@hartwick.tech?subject=Intro%20call">Book a 20-minute call</a>
+          <a class="btn btn-secondary" href="mailto:amanda@hartwick.tech">Email me</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:amanda@hartwick.tech">amanda@hartwick.tech</a></dd>
+          <dt>Location</dt>
+          <dd>Orange County, California</dd>
+          <dt>Works with</dt>
+          <dd>Teams anywhere in the U.S., remotely</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year">2026</span> Hartwick Technologies</p>
+    <p><a href="mailto:amanda@hartwick.tech">amanda@hartwick.tech</a></p>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     BOOKING LINK: paste your Google Calendar booking page URL
+     between the quotes below. Every "Book a call" button will use it.
+     While it's empty, the buttons open an email instead.
+     ============================================================ */
+  const BOOKING_URL = "";
+
+  (function () {
+    if (BOOKING_URL) {
+      document.querySelectorAll('[data-booking]').forEach(function (a) {
+        a.href = BOOKING_URL;
+        a.target = '_blank';
+        a.rel = 'noopener';
+      });
+    }
+
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    var header = document.querySelector('.site-header');
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    var log = document.querySelector('.shiplog');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { log.classList.add('go'); }); });
+  })();
+</script>
+</body>
+</html>
